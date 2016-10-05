@@ -1,3 +1,69 @@
-﻿<div class="col-md-12">
+﻿<!--<div class="col-md-12">
     <h1 ng-bind="title"></h1>
+</div>-->
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form ng-submit="addPost()">
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text"
+                       id="title"
+                       class="form-control"
+                       placeholder="Title..."
+                       ng-model="newPost.title" />
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text"
+                       id="author"
+                       class="form-control"
+                       placeholder="Author..."
+                       ng-model="newPost.author" />
+            </div>
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea id="body"
+                          style="width: 100%; height: 200px;"
+                          class="form-control"
+                          placeholder="Body..."
+                          ng-model="newPost.body" />
+            </div>
+
+            <button type="submit" class="btn btn-default">
+                Add post
+            </button>
+        </form>
+        <br /><br />
+    </div>
 </div>
+
+
+
+
+<div class="container">
+    <input type="text"
+           ng-model="author"
+           class="form-control"
+           placeholder="Search..." />
+    <br /><br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Body</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="post in posts | filter: author">
+                    <td ng-bind="post.title"></td>
+                    <td ng-bind="post.author"></td>
+                    <td ng-bind="post.body"></td>
+                    <td ng-bind="post.postDate"><td>
+                    <td><button ng-click="deletePost(post)" class="btn btn-default">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
